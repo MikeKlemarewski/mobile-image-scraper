@@ -1,0 +1,21 @@
+.dashboard-large .b-widget-xxx.w-crnr-head .b-widget-body, .dashboard-large .b-widget-xxxxxx.w-crnr-head .b-widget-body {
+	width: 100% !important;
+	height: 100% !important;
+
+}
+
+.w-image-xxxxxx{
+	width: 640px !important;
+	height: 990px !important;
+}
+
+
+.w-image-xxxxxx .image-box{
+	width: 640px !important;
+	height: 990px !important;
+	margin: 0px 0px 0px 0px;
+}
+
+.image-box[style]{
+	background-position: 0% 0% !important;
+}

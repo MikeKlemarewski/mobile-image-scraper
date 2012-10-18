@@ -1,0 +1,8 @@
+{
+    "name":"mobifyPics",
+    "version":"0.0.1",
+    "dependencies":{
+        "async":">=0.0.1",
+        "express":">=0.0.1"
+    }
+}
