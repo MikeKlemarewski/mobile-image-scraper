@@ -13,12 +13,14 @@ app.get('/', function(req, res){
 		, method:'GET'
 	}
 
+	// Get random live site url
 	var request = http.request(params, function(response){
 		var body = "";
 		response.on('data', function(chunk){
 			body += chunk;
 		});
 
+		// Once we have the url, take a picture!
 		response.on('end', function(){
 			url = JSON.parse(body)['url'];
 			getPic(url, function(path){
