@@ -5,36 +5,14 @@ var child_process = require('child_process');
 var async = require('async');
 var app = express();
 
-app.get('/', function(req, res){
-	var params = {
-		  host:'portal.dev'
-		, port: 8000
-		, path: '/randomlivesite/'
-		, method:'GET'
-	}
+app.get('/:url', function(req, res){
 
-	// Get random live site url
-	var request = http.request(params, function(response){
-		var body = "";
-		response.on('data', function(chunk){
-			body += chunk;
-		});
-
-		// Once we have the url, take a picture!
-		response.on('end', function(){
-			url = JSON.parse(body)['url'];
-			getPic(url, function(path){
-				var img = fs.readFileSync(path);
-				res.writeHead(200, {'Content-Type':'image/png'});
-				res.end(img, 'binary');
-			});
-		})
+	getPic(req.params.url, function(path){
+		var img = fs.readFileSync(path);
+		res.writeHead(200, {'Content-Type':'image/png'});
+		res.end(img, 'binary');
 	});
 
-	request.on('error', function(e){
-			console.log("ERROR: " + e.message);
-	})
-	request.end();
 });
 
 // Spawns a phantomjs process to take screenshot of the given url
